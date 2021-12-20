@@ -6,6 +6,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
+import Link from '@mui/material/Link';
 
 import PageMenu from './Menu';
 
@@ -17,8 +18,19 @@ const SignInLinks = ({
   onCloseNavMenu,
   onOpenNavMenu,
 }) => {
-  const settings = ['Profile', 'Notifications', 'Account', 'Dashboard', 'Logout'];
-  const pages = ['Home', 'Events', 'Blog'];
+  const settings = [
+    <Link href="/dashboard">Dashboard</Link>,
+    <Link href="/profile">Profile</Link>,
+    <Link href="/notifications">Notifications</Link>,
+    'Logout',
+  ];
+
+  const pages = [
+    <Link href="/">Home</Link>,
+    <Link href="/newpost">Create Post</Link>,
+    <Link href="/events">Events</Link>,
+    <Link href="/blog">Blog</Link>,
+  ];
 
   return (
     <>
@@ -50,7 +62,9 @@ const SignInLinks = ({
         component="div"
         sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
       >
-        EventApp
+        <Link href="/" sx={{ color: '#fff' }}>
+          EventApp
+        </Link>
       </Typography>
       <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
         {pages.map((page) => (

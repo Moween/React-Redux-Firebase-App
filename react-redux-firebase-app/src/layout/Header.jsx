@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Container from '@mui/material/Container';
+import Link from '@mui/material/Link';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import { useSelector } from 'react-redux';
 
 import SignInLinks from './navbar/SignInLinks';
-import SignOutLinks from './navbar/SignOutLinks';
+import SignUpLinks from './navbar/SignUpLinks';
 
 const ResponsiveAppBar = () => {
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -36,21 +39,24 @@ const ResponsiveAppBar = () => {
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            Event App
+            <Link href="/" sx={{ color: '#fff'}}>Event App</Link>
           </Typography>
-          {/* <SignInLinks
-            onCloseUserMenu={handleCloseUserMenu}
-            onOpenUserMenu={handleOpenUserMenu}
-            onCloseNavMenu={handleCloseNavMenu}
-            onOpenNavMenu={handleOpenNavMenu}
-            anchorElNav={anchorElNav}
-            anchorElUser={anchorElUser}
-          /> */}
-          <SignOutLinks
-            onCloseNavMenu={handleCloseNavMenu}
-            onOpenNavMenu={handleOpenNavMenu}
-            anchorElNav={anchorElNav}
-          />
+          {isLoggedIn ? (
+            <SignInLinks
+              onCloseUserMenu={handleCloseUserMenu}
+              onOpenUserMenu={handleOpenUserMenu}
+              onCloseNavMenu={handleCloseNavMenu}
+              onOpenNavMenu={handleOpenNavMenu}
+              anchorElNav={anchorElNav}
+              anchorElUser={anchorElUser}
+            />
+          ) : (
+            <SignUpLinks
+              onCloseNavMenu={handleCloseNavMenu}
+              onOpenNavMenu={handleOpenNavMenu}
+              anchorElNav={anchorElNav}
+            />
+          )}
         </Toolbar>
       </Container>
     </AppBar>
