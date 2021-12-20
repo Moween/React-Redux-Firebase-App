@@ -41,7 +41,7 @@ const ResponsiveAppBar = () => {
           >
             <Link href="/" sx={{ color: '#fff'}}>Event App</Link>
           </Typography>
-          {isLoggedIn ? (
+          {!isLoggedIn ? (
             <SignInLinks
               onCloseUserMenu={handleCloseUserMenu}
               onOpenUserMenu={handleOpenUserMenu}

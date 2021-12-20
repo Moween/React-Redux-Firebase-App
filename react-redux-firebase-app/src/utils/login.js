@@ -13,8 +13,8 @@ const Login = withFormik({
     password: '',
   }),
   validationSchema: loginValidationSchema,
-  onSubmit: (values) => {
-    alert(JSON.stringify(values));
+  handleSubmit: (values, { props }) => {
+    props.dispatch((values));
   },
   displayName: 'Login'
 })(LoginForm);

@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-// import DatePicker from '@mui/material/DatePicker';
+import DatePicker from './DatePicker';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
 import InputField from './TextField';
@@ -15,7 +15,7 @@ const CreatePost = (props) => {
     'corporate',
     'Meet and Greet',
   ];
-  const { values, touched, errors, handleChange, handleSubmit } = props;
+  const { values, touched, errors, handleChange, handleSubmit, setFieldValue } = props;
 
   return (
     <Box
@@ -48,13 +48,26 @@ const CreatePost = (props) => {
         error={touched.details && Boolean(errors.details)}
         helperText={touched.details && errors.details}
       />
-      {/* <DatePicker /> */}
+      <InputField
+        label="Event Venue"
+        name="venue"
+        value={values.venue}
+        onChange={handleChange}
+        error={touched.venue && Boolean(errors.venue)}
+        helperText={touched.venue && errors.venue}
+      />
       <Select
         eventTypes={eventTypes}
         eventType={values.eventType}
         onChange={handleChange}
         error={touched.eventType && Boolean(errors.eventType)}
         helperText={touched.eventType && errors.eventType}
+      />
+      <DatePicker
+        value={values.date}
+        onChange={setFieldValue}
+        error={touched.date && Boolean(errors.date)}
+        helperText={touched.date && errors.date}
       />
       <Button type="submit" variant="contained" endIcon={<NavigateNextIcon />}>
         Post

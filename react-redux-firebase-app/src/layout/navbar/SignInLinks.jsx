@@ -26,10 +26,10 @@ const SignInLinks = ({
   ];
 
   const pages = [
-    <Link href="/">Home</Link>,
-    <Link href="/newpost">Create Post</Link>,
-    <Link href="/events">Events</Link>,
-    <Link href="/blog">Blog</Link>,
+    <Link sx={{color: '#fff'}} href="/">Home</Link>,
+    <Link sx={{color: '#fff'}} href="/newpost">Create Post</Link>,
+    <Link sx={{color: '#fff'}} href="/events">Events</Link>,
+    <Link sx={{color: '#fff'}} href="/blog">Blog</Link>,
   ];
 
   return (
@@ -67,11 +67,11 @@ const SignInLinks = ({
         </Link>
       </Typography>
       <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-        {pages.map((page) => (
+        {pages.map((page, index) => (
           <Button
-            key={page}
+            key={index}
             onClick={onCloseNavMenu}
-            sx={{ my: 2, color: 'white', display: 'block' }}
+            sx={{ my: 2, display: 'block' }}
           >
             {page}
           </Button>

@@ -37,7 +37,7 @@ const Registration = withFormik({
     confirmPassword: '',
   }),
   validationSchema: regValidationSchema,
-  onSubmit: (values) => {
+  handleSubmit: (values) => {
     alert(JSON.stringify(values));
   },
   displayName: 'Register',

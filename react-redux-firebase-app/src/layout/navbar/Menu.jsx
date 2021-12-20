@@ -27,12 +27,14 @@ const PageMenu = ({
         horizontal: originHorizontal,
       }}
       open={Boolean(anchorNav)}
-      onClose={menuList.includes('Dashboard') ? onCloseUserMenu : onCloseNavMenu}
+      onClose={
+        menuList.includes('Dashboard') ? onCloseUserMenu : onCloseNavMenu
+      }
       sx={{ ...sx }}
     >
-      {menuList.map((item) => (
-        <MenuItem key={item} onClick={onCloseNavMenu}>
-          <Typography textAlign="center">{item}</Typography>
+      {menuList.map((item, index) => (
+        <MenuItem key={index} onClick={onCloseNavMenu}>
+          {item}
         </MenuItem>
       ))}
     </Menu>

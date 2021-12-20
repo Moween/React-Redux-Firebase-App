@@ -8,8 +8,8 @@ import Select from '@mui/material/Select';
 
 const SelectItem = ({ eventType, eventTypes, onChange, helperText }) => {
   return (
-    <Box sx={{ minWidth: 120 }}>
-      <FormControl fullWidth>
+    <Box sx={{ minWidth: 120, mt: '1rem' }}>
+      <FormControl fullWidth error={helperText}>
         <InputLabel id="eventType">Event Type</InputLabel>
         <Select
           labelId="event-type-label"
@@ -24,7 +24,7 @@ const SelectItem = ({ eventType, eventTypes, onChange, helperText }) => {
             <MenuItem value={type} key={index}>{type}</MenuItem>
           ))}
         </Select>
-        <FormHelperText>{helperText}</FormHelperText>
+        <FormHelperText error>{helperText}</FormHelperText>
       </FormControl>
     </Box>
   );
