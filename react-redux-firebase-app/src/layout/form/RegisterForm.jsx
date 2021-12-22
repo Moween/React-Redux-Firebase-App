@@ -20,7 +20,7 @@ const RegisterForm = ({
         width: { xs: '70%', lg: '40%' },
         m: '0 auto',
         mt: '2rem',
-        height: '70vh',
+        height: 'auto',
         display: 'flex',
         flexDirection: 'column',
       }}
