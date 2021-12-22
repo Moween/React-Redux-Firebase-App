@@ -16,18 +16,18 @@ const Home = () => {
         <Box component="section" className="md:flex  pt-4 items-center">
           <Box className="p-1">
             <Typography className="p-1" variant={mobile ? 'h5' : 'h3'} component="h2">
-              Let your events keep people talking.
+              Make your events public and keep people talking about it.
             </Typography>
-            <Typography component="p">
-              Event sharing software that makes event sharing easy. Engage and
-              grow your audience
+            <Typography sx={{ p: '0.5rem' }} component="p">
+              Event sharing software that makes event sharing easy. 
+              Invite people to your events.
             </Typography>
             <Box>
-              <Button variant="contained">Join for free</Button>
-              <Button variant="outlined">Sign In</Button>
+              <Button variant="contained" href='/registeruser'>Join for free</Button>
+              <Button variant="outlined" href="/loginuser">Sign In</Button>
             </Box>
           </Box>
-          <Box className="md:w-1/2">
+          <Box className="md:w-3/4">
             <img
               className="w-full"
               src={eventImg}
