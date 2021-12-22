@@ -26,10 +26,10 @@ const SignInLinks = ({
   ];
 
   const pages = [
-    <Link sx={{color: '#fff'}} href="/">Home</Link>,
-    <Link sx={{color: '#fff'}} href="/newpost">Create Post</Link>,
-    <Link sx={{color: '#fff'}} href="/events">Events</Link>,
-    <Link sx={{color: '#fff'}} href="/blog">Blog</Link>,
+    <Link sx={{color: 'inherit'}} href="/">Home</Link>,
+    <Link sx={{color: 'inherit'}} href="/newpost">Create Post</Link>,
+    <Link sx={{color: 'inherit'}} href="/events">Events</Link>,
+    <Link sx={{color: 'inherit'}} href="/blog">Blog</Link>,
   ];
 
   return (
@@ -42,6 +42,7 @@ const SignInLinks = ({
           aria-haspopup="true"
           onClick={onOpenNavMenu}
           color="inherit"
+          sx={{ ml: 'auto' }}
         >
           <MenuIcon />
         </IconButton>
@@ -71,7 +72,7 @@ const SignInLinks = ({
           <Button
             key={index}
             onClick={onCloseNavMenu}
-            sx={{ my: 2, display: 'block' }}
+            sx={{ my: 2, display: 'block', color: 'inherit' }}
           >
             {page}
           </Button>
@@ -80,8 +81,12 @@ const SignInLinks = ({
 
       <Box sx={{ flexGrow: 0 }}>
         <Tooltip title="Open settings">
-          <IconButton onClick={onOpenUserMenu} sx={{ p: 0 }}>
-            <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+          <IconButton onClick={onOpenUserMenu} sx={{ p: 0, cursor: 'pointer' }}>
+            <Avatar
+              alt="Remy Sharp"
+              src="/static/images/avatar/2.jpg"
+              sx={{ cursor: 'pointer' }}
+            />
           </IconButton>
         </Tooltip>
         <PageMenu

@@ -43,6 +43,7 @@ const SignUpLinks = ({ anchorElNav, onOpenNavMenu, onCloseNavMenu }) => {
           aria-haspopup="true"
           onClick={onOpenNavMenu}
           color="inherit"
+          sx={{ ml: 'auto' }}
         >
           <MenuIcon />
         </IconButton>
