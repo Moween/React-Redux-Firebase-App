@@ -28,20 +28,20 @@ const RegisterForm = ({
       autoComplete="off"
     >
       <InputField
-        label="FirstName"
-        name="firstName"
-        value={values.firstName}
+        label="FullName"
+        name="fullName"
+        value={values.fullName}
         onChange={handleChange}
-        error={touched.firstName && Boolean(errors.firstName)}
-        helperText={touched.firstName && errors.firstName}
+        error={touched.fullName && Boolean(errors.fullName)}
+        helperText={touched.fullName && errors.fullName}
       />
       <InputField
-        label="LastName"
-        name="lastName"
-        value={values.lastName}
+        label="UserName"
+        name="userName"
+        value={values.userName}
         onChange={handleChange}
-        error={touched.lastName && Boolean(errors.lastName)}
-        helperText={touched.lastName && errors.lastName}
+        error={touched.userName && Boolean(errors.userName)}
+        helperText={touched.userName && errors.userName}
       />
       <InputField
         label="Email"
@@ -66,7 +66,7 @@ const RegisterForm = ({
         label="Confirm Password"
         variant="outlined"
         margin="normal"
-        name="ConfirmPassword"
+        name="confirmPassword"
         type="password"
         value={values.confirmPassword}
         onChange={handleChange}
