@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 import { useMediaQuery } from '@mui/material';
@@ -30,9 +30,11 @@ function App() {
   const isTablet = useMediaQuery(theme.breakpoints.down('lg'));
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
 
-  dispatch(setSmallScreen(isMobile));
-  dispatch(setMediumScreen(isTablet));
-  dispatch(setLargeScreen(isDesktop));
+  useEffect(() => {  
+    dispatch(setSmallScreen(isMobile));
+    dispatch(setMediumScreen(isTablet));
+    dispatch(setLargeScreen(isDesktop));   
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>
