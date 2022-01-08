@@ -1,5 +1,4 @@
 import React from 'react';
-import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
@@ -28,7 +27,7 @@ const PageMenu = ({
       }}
       open={Boolean(anchorNav)}
       onClose={
-        menuList.includes('Dashboard') ? onCloseUserMenu : onCloseNavMenu
+        menuList[0].props.href === '/profile' ? onCloseUserMenu : onCloseNavMenu
       }
       sx={{ ...sx }}
     >
