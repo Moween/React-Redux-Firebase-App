@@ -18,8 +18,7 @@ const SignInLinks = ({
   onCloseNavMenu,
   onOpenNavMenu,
 }) => {
-  const settings = [
-    <Link href="/dashboard">Dashboard</Link>,
+  const accountSettings = [
     <Link href="/profile">Profile</Link>,
     <Link href="/notifications">Notifications</Link>,
     'Logout',
@@ -34,6 +33,16 @@ const SignInLinks = ({
 
   return (
     <>
+      <Typography
+        variant="h6"
+        noWrap
+        component="div"
+        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+      >
+        <Link href="/" sx={{ color: '#fff' }}>
+          EventApp
+        </Link>
+      </Typography>
       <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
         <IconButton
           size="large"
@@ -48,25 +57,15 @@ const SignInLinks = ({
         </IconButton>
         <PageMenu
           anchorOriginVertical="bottom"
-          sx={{ display: { xs: 'block', md: 'none' } }}
           originHorizontal="left"
           transformOriginVertical="top"
-          menuList={pages}
+          menuList={[...pages, ...accountSettings]}
           position="right"
           anchorNav={anchorElNav}
           onCloseNavMenu={onCloseNavMenu}
+          sx={{ display: { xs: 'block', md: 'none' } }}
         />
       </Box>
-      <Typography
-        variant="h6"
-        noWrap
-        component="div"
-        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-      >
-        <Link href="/" sx={{ color: '#fff' }}>
-          EventApp
-        </Link>
-      </Typography>
       <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
         {pages.map((page, index) => (
           <Button
@@ -78,9 +77,8 @@ const SignInLinks = ({
           </Button>
         ))}
       </Box>
-
-      <Box sx={{ flexGrow: 0 }}>
-        <Tooltip title="Open settings">
+      <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
+        <Tooltip title="Account settings">
           <IconButton onClick={onOpenUserMenu} sx={{ p: 0, cursor: 'pointer' }}>
             <Avatar
               alt="Remy Sharp"
@@ -94,7 +92,7 @@ const SignInLinks = ({
           sx={{ mt: '45px' }}
           originHorizontal="right"
           transformOriginVertical="top"
-          menuList={settings}
+          menuList={accountSettings}
           position="right"
           anchorNav={anchorElUser}
           onCloseUserMenu={onCloseUserMenu}
