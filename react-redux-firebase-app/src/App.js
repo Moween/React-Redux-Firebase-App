@@ -4,25 +4,22 @@ import { ThemeProvider } from '@mui/material/styles';
 import { useMediaQuery } from '@mui/material';
 import { useDispatch } from 'react-redux';
 
-import DashBoard from './components/dashboard/DashBoard';
-import EventDetails from './components/events/EventDetails';
-import EventList from './components/events/EventList';
+
 import Header from './layout/Header';
 import Home from './pages/Home';
 import LoginUser from './pages/LoginUser';
 import Main from './layout/Main';
-import NewPost from './pages/NewPost';
 import NotFound from './pages/NotFound';
-import Notification from './components/dashboard/Notification';
-import Profile from './components/dashboard/Profile';
 import RegisterUser from './pages/RegisterUser';
 import { theme } from './utils/MuiStyles';
 import {
   setMediumScreen,
   setLargeScreen,
   setSmallScreen,
-} from './app/reducers/mediaQuerySlice';
+} from './reducers/mediaQuerySlice';
 import './App.css';
+import PrivateRoute from './components/PrivateRoute';
+import { navLinks } from './utils/data';
 
 function App() {
   const dispatch = useDispatch();
@@ -30,10 +27,19 @@ function App() {
   const isTablet = useMediaQuery(theme.breakpoints.down('lg'));
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
 
-  useEffect(() => {  
+  useEffect(() => {
     dispatch(setSmallScreen(isMobile));
+    // eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
     dispatch(setMediumScreen(isTablet));
-    dispatch(setLargeScreen(isDesktop));   
+    // eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    dispatch(setLargeScreen(isDesktop));
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -41,14 +47,15 @@ function App() {
       <Header />
       <Main>
         <Routes>
-          <Route path="/dashboard" element={<DashBoard />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/notifications" element={<Notification />} />
-          <Route path="/events/eventdetails/:id" element={<EventDetails />} />
-          <Route path="/events" element={<EventList />} />
-          <Route path="/loginuser" element={<LoginUser />} />
-          <Route path="/registeruser" element={<RegisterUser />} />
-          <Route path="/newpost" element={<NewPost />} />
+          {navLinks.map((navLink) => (
+            <Route
+              key={navLink.path}
+              path={navLink.path}
+              element={<PrivateRoute>{navLink.element}</PrivateRoute>}
+            />
+          ))}
+          <Route path="loginuser" element={<LoginUser />} />
+          <Route path="registeruser" element={<RegisterUser />} />
           <Route path="/" exact element={<Home />} />
           <Route path="*" exact element={<NotFound />} />
         </Routes>
