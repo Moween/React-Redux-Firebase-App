@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 import { withFormik } from 'formik';
 import CreatePost from '../layout/form/CreatePost';
-import { createPost } from '../app/reducers/createPostSlice';
+import { createPost } from '../reducers/createPostSlice';
 
 const postValidationSchema = yup.object().shape({
   title: yup.string().required('Title is required'),
