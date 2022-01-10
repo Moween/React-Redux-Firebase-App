@@ -31,8 +31,8 @@ function App() {
           ))}
           <Route path="loginuser" element={<LoginUser />} />
           <Route path="registeruser" element={<RegisterUser />} />
-          <Route path="/" exact element={<Home />} />
-          <Route path="*" exact element={<NotFound />} />
+          <Route path="/" element={<Home />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Main>
     </ThemeProvider>
