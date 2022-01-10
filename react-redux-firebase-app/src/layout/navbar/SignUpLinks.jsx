@@ -9,7 +9,6 @@ import PageMenu from './Menu';
 
 const SignUpLinks = ({ anchorElNav, onOpenNavMenu, onCloseNavMenu }) => {
   const pages = [
-    <Link href="/">Home</Link>,
     <Link href="/loginuser">Login</Link>,
     <Link href="/registeruser">Register</Link>,
   ];
@@ -37,7 +36,7 @@ const SignUpLinks = ({ anchorElNav, onOpenNavMenu, onCloseNavMenu }) => {
       </Box>
       <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
         <IconButton
-          size="large"
+          size="large"  
           aria-label="account of current user"
           aria-controls="menu-appbar"
           aria-haspopup="true"
