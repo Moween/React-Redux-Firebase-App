@@ -28,13 +28,28 @@ const DashBoard = ({ newsFeed }) => {
           direction={mobile ? 'column-reverse' : 'row'}
         >
           <Grid item xs={12} lg={4} md={4}>
-            <Item>{Profile}</Item>
+            <Item>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
+              suscipit velit a odit recusandae quam quasi reiciendis, optio nam
+              possimus in magni deleniti ut dignissimos eos laboriosam?
+              Corporis, debitis odio.
+            </Item>
           </Grid>
           <Grid item xs={12} lg={4} md={8}>
-            <Item>{newsFeed}</Item>
+            <Item>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum
+              quis dicta minima commodi nostrum deserunt. Natus ab quibusdam
+              itaque ut, numquam eveniet dicta sed iusto. At ut nihil ad
+              maiores.
+            </Item>
           </Grid>
           <Grid item xs={12} lg={4} md={4}>
-            <Item>{Notifications}</Item>
+            <Item>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Temporibus laboriosam, id quod deserunt optio accusamus aliquam
+              eveniet debitis saepe veritatis doloremque ab eius, eos voluptas!
+              Mollitia at ad necessitatibus sequi?
+            </Item>
           </Grid>
         </Grid>
       </Container>
