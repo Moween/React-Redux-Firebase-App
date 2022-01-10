@@ -5,9 +5,12 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
+import { useMediaQuery } from '@mui/material';
 
 import Profile from './Profile';
 import Notifications from './Notification';
+import { theme } from '../../utils/MuiStyles';
+
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -17,7 +20,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const DashBoard = ({ newsFeed }) => {
-  const mobile = useSelector((state) => state.mediaQuery.smallScreen);
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <Box component="main">
@@ -25,7 +28,7 @@ const DashBoard = ({ newsFeed }) => {
         <Grid
           container
           spacing={2}
-          direction={mobile ? 'column-reverse' : 'row'}
+          direction={isMobile ? 'column-reverse' : 'row'}
         >
           <Grid item xs={12} lg={4} md={4}>
             <Item>
