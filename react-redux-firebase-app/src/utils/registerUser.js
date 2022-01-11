@@ -3,42 +3,40 @@ import { withFormik } from 'formik';
 import RegisterForm from '../layout/form/RegisterForm';
 
 const regValidationSchema = yup.object().shape({
-  firstName: yup
+  fullName: yup
     .string()
-    .min(2, "FirstName can't be a letter")
-    .max(10, 'FirstName is too long')
-    .required('FirstName is required'),
-  lastName: yup
+    .min(2, "FullName can't be a letter")
+    .required('FullName is required'),
+  userName: yup
     .string()
-    .min(2, "LastName can't be a letter")
-    .max(10, 'LastName is too long')
-    .required('LastName is required'),
+    .min(2, "UserName can't be a letter")
+    .max(10, 'UserName is too long')
+    .required('UserName is required'),
   email: yup.string().email('Invalid email').required('email is required'),
   password: yup
     .string()
     .min(8, 'Password is too short - should be 8 chars minimum.')
-    .matches(/[^a-zA-Z\d\W]/g, 'Password must alphanumeric')
     .matches(/[^\s]/g, 'Password must not contain whitespace') // Number should not contain whitespace
     .required('Password is required'),
   confirmPassword: yup
     .string()
     .oneOf([yup.ref('password'), null], 'Password must match')
     .required('Confirm Password'),
-  age: yup.number().required().positive().integer(),
-  gender: yup.boolean().required(),
 });
 
 const Registration = withFormik({
   mapPropsToValues: () => ({
-    firstName: '',
-    lastName: '',
+    fullName: '',
+    userName: '',
     email: '',
     password: '',
     confirmPassword: '',
   }),
   validationSchema: regValidationSchema,
-  handleSubmit: (values) => {
-    alert(JSON.stringify(values));
+  handleSubmit: (values, { props }) => {
+    const {userName, email, password} = values;
+    const { dispatch, registerUser } = props;
+    dispatch(registerUser({ userName, email, password }));
   },
   displayName: 'Register',
 })(RegisterForm);
