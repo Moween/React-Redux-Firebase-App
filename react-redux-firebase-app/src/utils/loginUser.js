@@ -14,7 +14,8 @@ const Login = withFormik({
   }),
   validationSchema: loginValidationSchema,
   handleSubmit: (values, { props }) => {
-    props.dispatch((values));
+    const { dispatch, loginUser } = props
+    dispatch(loginUser(values));
   },
   displayName: 'Login'
 })(LoginForm);
