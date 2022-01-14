@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 import { withFormik } from 'formik';
-import LoginForm from '../layout/form/LoginForm';
+import LoginForm from './LoginForm';
 
 const loginValidationSchema = yup.object().shape({
   email: yup.string().email().required(),
@@ -13,9 +13,9 @@ const Login = withFormik({
     password: '',
   }),
   validationSchema: loginValidationSchema,
-  handleSubmit: (values, { props }) => {
-    const { dispatch, loginUser } = props
-    dispatch(loginUser(values));
+  handleSubmit: async(values, { props }) => {
+    const { loginUser } = props
+    await loginUser(values);
   },
   displayName: 'Login'
 })(LoginForm);

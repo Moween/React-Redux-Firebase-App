@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 import { withFormik } from 'formik';
-import RegisterForm from '../layout/form/RegisterForm';
+import RegisterForm from './RegisterForm';
 
 const regValidationSchema = yup.object().shape({
   fullName: yup
@@ -33,10 +33,10 @@ const Registration = withFormik({
     confirmPassword: '',
   }),
   validationSchema: regValidationSchema,
-  handleSubmit: (values, { props }) => {
-    const {userName, email, password} = values;
-    const { dispatch, registerUser } = props;
-    dispatch(registerUser({ userName, email, password }));
+  handleSubmit: async (values, { props }) => {
+    const { userName: username, email, password } = values;
+    const { registerUser } = props;
+    await registerUser({ username, email, password });
   },
   displayName: 'Register',
 })(RegisterForm);
