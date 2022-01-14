@@ -10,7 +10,7 @@ import SignInLinks from './navbar/SignInLinks';
 import SignUpLinks from './navbar/SignUpLinks';
 
 const ResponsiveAppBar = () => {
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const { isLoaded, isEmpty } = useSelector((state) => state.firebase.auth);
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -29,6 +29,29 @@ const ResponsiveAppBar = () => {
     setAnchorElUser(null);
   };
 
+  const displayLinks = () => {
+    if (isLoaded && isEmpty) {
+      return (
+        <SignUpLinks
+          onCloseNavMenu={handleCloseNavMenu}
+          onOpenNavMenu={handleOpenNavMenu}
+          anchorElNav={anchorElNav}
+        />
+      );
+    } else if (isLoaded && !isEmpty) {
+      return (
+        <SignInLinks
+          onCloseUserMenu={handleCloseUserMenu}
+          onOpenUserMenu={handleOpenUserMenu}
+          onCloseNavMenu={handleCloseNavMenu}
+          onOpenNavMenu={handleOpenNavMenu}
+          anchorElNav={anchorElNav}
+          anchorElUser={anchorElUser}
+        />
+      );
+    }
+  };
+
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -39,24 +62,11 @@ const ResponsiveAppBar = () => {
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            <Link href="/" sx={{ color: '#fff'}}>Event App</Link>
+            <Link href="/" sx={{ color: '#fff' }}>
+              Eventify
+            </Link>
           </Typography>
-          {!isLoggedIn ? (
-            <SignInLinks
-              onCloseUserMenu={handleCloseUserMenu}
-              onOpenUserMenu={handleOpenUserMenu}
-              onCloseNavMenu={handleCloseNavMenu}
-              onOpenNavMenu={handleOpenNavMenu}
-              anchorElNav={anchorElNav}
-              anchorElUser={anchorElUser}
-            />
-          ) : (
-            <SignUpLinks
-              onCloseNavMenu={handleCloseNavMenu}
-              onOpenNavMenu={handleOpenNavMenu}
-              anchorElNav={anchorElNav}
-            />
-          )}
+          {displayLinks()}
         </Toolbar>
       </Container>
     </AppBar>

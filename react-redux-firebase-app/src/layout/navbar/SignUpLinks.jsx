@@ -21,7 +21,7 @@ const SignUpLinks = ({ anchorElNav, onOpenNavMenu, onCloseNavMenu }) => {
         sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, color: '#fff' }}
       >
         <Link href="/" sx={{ color: '#fff' }}>
-          EventApp
+          Eventify
         </Link>
       </Typography>
       <Box
