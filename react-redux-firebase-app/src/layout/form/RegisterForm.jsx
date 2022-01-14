@@ -1,6 +1,7 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import Link from '@mui/material/Link';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
 import InputField from './TextField';
@@ -17,7 +18,7 @@ const RegisterForm = ({
       component="form"
       id="register-form"
       sx={{
-        width: { xs: '70%', lg: '40%' },
+        width: { xs: '70%', lg: '30%' },
         m: '0 auto',
         mt: '2rem',
         height: 'auto',
@@ -74,9 +75,17 @@ const RegisterForm = ({
         helperText={touched.confirmPassword && errors.confirmPassword}
       />
 
-      <Button type="submit" variant="contained" endIcon={<NavigateNextIcon />}>
+      <Button
+        type="submit"
+        variant="contained"
+        endIcon={<NavigateNextIcon />}
+        disableRipple={true}
+      >
         Sign Up
       </Button>
+      <Link sx={{ m: '0 auto', mt: '1rem', textDecoration: 'none' }} href="/loginuser">
+        Already have an account? Log in
+      </Link>
     </Box>
   );
 };
