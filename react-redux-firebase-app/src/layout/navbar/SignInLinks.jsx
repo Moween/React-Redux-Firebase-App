@@ -28,7 +28,6 @@ const SignInLinks = ({
     <Link sx={{color: 'inherit'}} href="/">Home</Link>,
     <Link sx={{color: 'inherit'}} href="/newpost">Create Post</Link>,
     <Link sx={{color: 'inherit'}} href="/events">Events</Link>,
-    <Link sx={{color: 'inherit'}} href="/blog">Blog</Link>,
   ];
 
   return (
