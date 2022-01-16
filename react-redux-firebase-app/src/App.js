@@ -11,6 +11,9 @@ import PrivateRoute from './components/PrivateRoute';
 import RegisterUser from './pages/RegisterUser';
 import { theme } from './utils/MuiStyles';
 import { navLinks } from './utils/data';
+import { ToastContainer } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
 function App() {
@@ -20,6 +23,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Header />
+      <ToastContainer />
       <Main>
         <Routes>
           {navLinks.map((navLink) => (
