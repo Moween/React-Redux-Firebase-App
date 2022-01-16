@@ -1,7 +1,6 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Link from '@mui/material/Link';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
 import InputField from './TextField';
@@ -18,9 +17,8 @@ const RegisterForm = ({
       component="form"
       id="register-form"
       sx={{
-        width: { xs: '70%', lg: '30%' },
-        m: '0 auto',
-        mt: '2rem',
+        mt: '1rem',
+        mb: '1rem',
         height: 'auto',
         display: 'flex',
         flexDirection: 'column',
@@ -83,9 +81,6 @@ const RegisterForm = ({
       >
         Sign Up
       </Button>
-      <Link sx={{ m: '0 auto', mt: '1rem', textDecoration: 'none' }} href="/loginuser">
-        Already have an account? Log in
-      </Link>
     </Box>
   );
 };
