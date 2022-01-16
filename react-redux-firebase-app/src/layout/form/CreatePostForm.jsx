@@ -7,15 +7,22 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import InputField from './TextField';
 import Select from './Select';
 
-const CreatePost = (props) => {
+const CreatePostForm = ({
+  values,
+  touched,
+  errors,
+  handleChange,
+  handleSubmit,
+  setFieldValue,
+}) => {
   const eventTypes = [
     'Select an event type',
     'Social',
     'Party',
-    'corporate',
+    'Corporate',
     'Meet and Greet',
+    'Religious',
   ];
-  const { values, touched, errors, handleChange, handleSubmit, setFieldValue } = props;
 
   return (
     <Box
@@ -76,4 +83,4 @@ const CreatePost = (props) => {
   );
 };
 
-export default CreatePost;
+export default CreatePostForm;
