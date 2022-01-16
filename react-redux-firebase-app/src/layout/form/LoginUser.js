@@ -13,8 +13,8 @@ const Login = withFormik({
     password: '',
   }),
   validationSchema: loginValidationSchema,
-  handleSubmit: async(values, { props }) => {
-    const { loginUser } = props
+  handleSubmit: async (values, { props }) => {
+    const { loginUser } = props;
     await loginUser(values);
   },
   displayName: 'Login'
