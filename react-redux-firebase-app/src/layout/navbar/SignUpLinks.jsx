@@ -9,8 +9,8 @@ import PageMenu from './Menu';
 
 const SignUpLinks = ({ anchorElNav, onOpenNavMenu, onCloseNavMenu }) => {
   const pages = [
-    <Link href="/loginuser">Login</Link>,
-    <Link href="/registeruser">Register</Link>,
+    <Link href="loginuser">Login</Link>,
+    <Link href="registeruser">Register</Link>,
   ];
   return (
     <>
@@ -27,10 +27,10 @@ const SignUpLinks = ({ anchorElNav, onOpenNavMenu, onCloseNavMenu }) => {
       <Box
         sx={{ ml: 'auto', display: { xs: 'none', md: 'block' }, width: '15%' }}
       >
-        <Link href="/loginuser" sx={{ color: '#fff', mr: '1rem', p: '0.5rem' }}>
+        <Link href="loginuser" sx={{ color: '#fff', mr: '1rem', p: '0.5rem' }}>
           Login
         </Link>
-        <Link href="/registeruser" sx={{ color: '#fff', p: '0.5rem' }}>
+        <Link href="registeruser" sx={{ color: '#fff', p: '0.5rem' }}>
           Register
         </Link>
       </Box>
