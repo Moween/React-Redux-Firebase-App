@@ -10,7 +10,7 @@ const regValidationSchema = yup.object().shape({
   userName: yup
     .string()
     .min(2, "UserName can't be a letter")
-    .max(10, 'UserName is too long')
+    .max(20, 'UserName is too long')
     .required('UserName is required'),
   email: yup.string().email('Invalid email').required('email is required'),
   password: yup
