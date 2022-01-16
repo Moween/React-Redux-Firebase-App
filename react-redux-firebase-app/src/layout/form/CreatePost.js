@@ -1,7 +1,6 @@
 import * as yup from 'yup';
 import { withFormik } from 'formik';
-import CreatePost from '../layout/form/CreatePost';
-import { createPost } from '../reducers/createPostSlice';
+import CreatePostForm from './CreatePostForm';
 
 const postValidationSchema = yup.object().shape({
   title: yup.string().required('Title is required'),
@@ -20,11 +19,13 @@ const PostValidation = withFormik({
     date: null,
   }),
   validationSchema: postValidationSchema,
-  handleSubmit: (values, { props }) => {
-    // pass in dispatch as props
-    props.dispatch(createPost(values));
+  handleSubmit: async (values, { props, resetForm }) => {
+    const { createPost } = props;
+    // pass in dispatch as props;
+    await createPost(values);
+    resetForm({ values: ''});
   },
   displayName: 'Create Post',
-})(CreatePost);
+})(CreatePostForm);
 
 export default PostValidation;
