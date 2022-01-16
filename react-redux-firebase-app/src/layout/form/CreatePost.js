@@ -21,9 +21,8 @@ const PostValidation = withFormik({
   validationSchema: postValidationSchema,
   handleSubmit: async (values, { props, resetForm }) => {
     const { createPost } = props;
-    // pass in dispatch as props;
     await createPost(values);
-    resetForm({ values: ''});
+    resetForm({ values: '' })
   },
   displayName: 'Create Post',
 })(CreatePostForm);
