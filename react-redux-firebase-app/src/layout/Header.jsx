@@ -53,23 +53,26 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
-          >
-            <Link href="/" sx={{ color: '#fff' }}>
-              Eventify
-            </Link>
-          </Typography>
-          {displayLinks()}
-        </Toolbar>
-      </Container>
-    </AppBar>
+    <React.Fragment>
+      <AppBar position="fixed">
+        <Container maxWidth="xl">
+          <Toolbar disableGutters>
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+            >
+              <Link href="/" sx={{ color: '#fff' }}>
+                Eventify
+              </Link>
+            </Typography>
+            {displayLinks()}
+          </Toolbar>
+        </Container>
+      </AppBar>
+      <Toolbar />
+    </React.Fragment>
   );
 };
 export default ResponsiveAppBar;
