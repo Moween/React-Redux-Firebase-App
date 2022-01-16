@@ -3,10 +3,6 @@ import { withFormik } from 'formik';
 import RegisterForm from './RegisterForm';
 
 const regValidationSchema = yup.object().shape({
-  fullName: yup
-    .string()
-    .min(2, "FullName can't be a letter")
-    .required('FullName is required'),
   userName: yup
     .string()
     .min(2, "UserName can't be a letter")
@@ -26,7 +22,6 @@ const regValidationSchema = yup.object().shape({
 
 const Registration = withFormik({
   mapPropsToValues: () => ({
-    fullName: '',
     userName: '',
     email: '',
     password: '',

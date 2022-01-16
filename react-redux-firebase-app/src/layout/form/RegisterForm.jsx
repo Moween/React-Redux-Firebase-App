@@ -27,14 +27,6 @@ const RegisterForm = ({
       autoComplete="off"
     >
       <InputField
-        label="FullName"
-        name="fullName"
-        value={values.fullName}
-        onChange={handleChange}
-        error={touched.fullName && Boolean(errors.fullName)}
-        helperText={touched.fullName && errors.fullName}
-      />
-      <InputField
         label="UserName"
         name="userName"
         value={values.userName}
