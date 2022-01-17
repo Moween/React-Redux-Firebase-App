@@ -6,6 +6,7 @@ import CardContent from '@mui/material/CardContent';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
+import EventList from '../events/EventList';
 
 const Profile = ({
   imgSrc,
@@ -30,7 +31,8 @@ const Profile = ({
             <Link href="dashboard/profile">{userName}</Link>
             <Stack>
               <Typography component="h5">
-                <Link href="events/eventList">Events</Link>
+                <Link href="events/eventList">Activity</Link>
+                <EventList />
                 <Typography variant="h5" component="span">
                   {messages}
                 </Typography>
