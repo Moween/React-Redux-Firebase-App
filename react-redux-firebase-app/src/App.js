@@ -15,6 +15,7 @@ import { ToastContainer } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
+import Footer from './layout/Footer';
 
 function App() {
   // const isTablet = useMediaQuery(theme.breakpoints.between('sm', "md"));
@@ -39,6 +40,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Main>
+      <Footer />
     </ThemeProvider>
   );
 }
