@@ -1,5 +1,4 @@
 import { configureStore } from '@reduxjs/toolkit';
-import createPostSlice from '../reducers/createPostSlice';
 import {
   firebaseReducer,
   
@@ -8,7 +7,6 @@ import { firestoreReducer } from 'redux-firestore';
 
 export const store = configureStore({
   reducer: {
-    createPost: createPostSlice,
     firebase: firebaseReducer,
     firestore: firestoreReducer,
   },
