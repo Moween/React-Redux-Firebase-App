@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react';
 import { createTheme } from '@mui/material/styles';
-import { makeStyles }  from '@mui/material/styles/makeStyles';
 import { Link } from 'react-router-dom';
 
 // Customize Mui Link Component
