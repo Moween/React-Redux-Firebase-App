@@ -14,12 +14,12 @@ export const navLinks = [
     element: <Profile />,
   },
   {
-    path: 'events/eventdetails/:id',
-    element: <EventDetails />,
-  },
-  {
     path: 'events',
     element: <EventList />,
+  },
+  {
+    path: 'events/eventdetails/:id',
+    element: <EventDetails />,
   },
   {
     path: 'newpost',
