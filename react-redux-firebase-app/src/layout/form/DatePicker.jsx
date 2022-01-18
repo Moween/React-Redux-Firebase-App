@@ -16,7 +16,7 @@ export default function BasicDatePicker({error, helperText, onChange, value}) {
         cancelLabel
         okLabel
         disablePast
-        onChange={(value) => onChange("date", value)}
+        onChange={(value) => onChange("eventDate", value)}
       />
     </LocalizationProvider>
   );

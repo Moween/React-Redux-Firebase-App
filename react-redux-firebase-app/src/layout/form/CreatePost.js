@@ -7,7 +7,7 @@ const postValidationSchema = yup.object().shape({
   details: yup.string().required('Details is required'),
   venue: yup.string().required('Venue is required'),
   eventType: yup.string().required('Event type is required'),
-  date: yup.date().required('Event Date is required'),
+  eventDate: yup.date().required('Event date is required'),
 });
 
 const PostValidation = withFormik({
@@ -16,10 +16,11 @@ const PostValidation = withFormik({
     details: '',
     venue: '',
     eventType: '',
-    date: null,
+    eventDate: null,
   }),
   validationSchema: postValidationSchema,
   handleSubmit: async (values, { props, resetForm }) => {
+    console.log(values)
     const { createPost } = props;
     await createPost(values);
     resetForm({ values: '' })

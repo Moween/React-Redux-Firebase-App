@@ -71,10 +71,10 @@ const CreatePostForm = ({
         helperText={touched.eventType && errors.eventType}
       />
       <DatePicker
-        value={values.date}
+        value={values.eventDate}
         onChange={setFieldValue}
-        error={touched.date && Boolean(errors.date)}
-        helperText={touched.date && errors.date}
+        error={touched.eventDate && Boolean(errors.eventDate)}
+        helperText={touched.eventDate && errors.eventDate}
       />
       <Button type="submit" variant="contained" endIcon={<NavigateNextIcon />}>
         Post
