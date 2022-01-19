@@ -1,6 +1,7 @@
 import * as yup from 'yup';
 import { withFormik } from 'formik';
 import CreatePostForm from './CreatePostForm';
+import { toast } from 'react-toastify';
 
 const postValidationSchema = yup.object().shape({
   title: yup.string().required('Title is required'),
@@ -20,10 +21,13 @@ const PostValidation = withFormik({
   }),
   validationSchema: postValidationSchema,
   handleSubmit: async (values, { props, resetForm }) => {
-    console.log(values)
     const { createPost } = props;
-    await createPost(values);
-    resetForm({ values: '' })
+    try {
+      await createPost(values);      
+      resetForm({ values: '' })
+    } catch (error) {
+      toast.error(error.message)
+    }
   },
   displayName: 'Create Post',
 })(CreatePostForm);
